@@ -1,0 +1,6 @@
+Specify a function f(x,y[,D,A])
+-10.0
+10.0
+-10.0
+10.0
+50
