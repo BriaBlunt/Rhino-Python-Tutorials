@@ -1,5 +1,11 @@
 import rhinoscriptsyntax as rs
-from Rhino.Geometry import Point3d
+from math import*
+
+#for i in range(0,100):
+    #rs.AddPoint( [sin(i),i,0] )
 
 
-rs.AddPoint
+i = 0
+while i < 100:
+    rs.AddPoint( [sin(i),i,0] )
+    i += 1
