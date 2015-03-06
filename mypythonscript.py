@@ -1,13 +1,19 @@
 import rhinoscriptsyntax as rs
 from math import*
 
-def myFunction(object, translation):
-    rs.MoveObject(object, translation)
-    print("translation successful!")
+class myClass:
 
-strObject = rs.GetObject("pick an object from screen", 4)
+    def __init__(self, _name):
+        self.name = _name
 
-print(strObject)
+    def printName(self):
+        print(self.name)
 
-#myFunction(strObject, [ 10,0,0] )
-#myFunction(strObject, [ 0,10,0] )
+    def printAlert(self):
+        print("Alert!")
+
+obj1 = myClass("Ana")
+obj1.printName()
+
+obj2 = myClass("Joe")
+obj2.printName()
