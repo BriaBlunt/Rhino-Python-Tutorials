@@ -1,31 +1,47 @@
+## VECTORS
 
-#LISTS:
+import rhinoscriptsyntax as rs
 
-myList01 = [54,22, "cat"]
-myList02 = [8, "cat", 33]
-myList03 = [64, 635, 12, 78]
+vec1 = rs.GetObject("pick pt 01", 0)
+vec2 = rs.GetObject("pick pt 02", 0)
 
-#myList.append(45)
-#myList01.extend(myList02)
-#myList01.remove(22)
-#myList01.pop(0)
-    #^This removes the first element "54"; (programming starts counting at 0)
 
-#x = myList01.pop(0)
 
-#print myList01
-#print x
+#vec3 = rs.VectorAdd(vec1,vec2)
 
-    ##how to find out how long your list is
+#rs.AddPoint(vec3)
 
-#print len(myList01)
-    ##output returns "3" to indicate that there are 3 elements in the list
+    ##the third point (vec3) results in adding distance of pt 2
+    ##from Origin to pt1's distance, as seen from Topview
+    ##is like the two pts median... kinda
 
-#print myList01.index("cat")
-    ##output = "2", tells the index of "cat"
-#print myList01.index(22)
-    ##vice versa - tells what the index is of 22 in myList01
+#vec3 = rs.VectorSubtract(vec1,vec2)
+#rs.AddPoint(vec3)
+    ##this produces to opposite effect as rs.VectorAdd
+    ##it's the left behind (substracted) line btwn the two vectors
+    ##and directed in the opposite direction
+    ##the results wouls change if you changed the order of the "vec"s in the rhino action
 
-myList03.sort()
-print myList03
-    ##put in increasing order. The opposite is "myList03.reverse"
+#vec3 = rs.VectorCreate(vec1,vec2)
+#rs.AddPoint(vec3)
+    ##same result as subtraction
+
+#vec1 = rs.VectorScale(vec1, 0.5)
+    ##scaled the vector in half
+
+#vec = rs.VectorUnitize(vec1)
+    ## made the vector one unit in length
+    ##useful for specifying direction and such
+
+
+vec3 = rs.VectorSubtract(vec2,vec1)
+    ##directinality
+vec3 = rs.VectorUnitize(vec3)
+    ##unitize
+vec3 = rs.VectorScale(vec3,2)
+    ##make it really small
+vec3 = rs.VectorAdd(vec3,vec1)
+
+
+
+rs.AddPoint(vec3)
