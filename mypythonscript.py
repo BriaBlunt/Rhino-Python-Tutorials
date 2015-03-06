@@ -1,11 +1,14 @@
 import rhinoscriptsyntax as rs
 from math import*
 
-#for i in range(0,100):
-    #rs.AddPoint( [sin(i),i,0] )
+rs.EnableRedraw (False)
 
+for i in range(0,40):
 
-i = 0
-while i < 100:
-    rs.AddPoint( [sin(i),i,0] )
-    i += 1
+    if (i % 5 == 0):
+        rs.AddPoint( [i,0,0] )
+
+    else:
+        rs.AddSphere( [i,0,0], 0.3)
+
+rs.EnableRedraw (True)
