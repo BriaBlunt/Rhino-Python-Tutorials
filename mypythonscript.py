@@ -1,14 +1,13 @@
 import rhinoscriptsyntax as rs
 from math import*
 
-rs.EnableRedraw (False)
+def myFunction(object, translation):
+    rs.MoveObject(object, translation)
+    print("translation successful!")
 
-for i in range(0,40):
+strObject = rs.GetObject("pick an object from screen", 4)
 
-    if (i % 5 == 0):
-        rs.AddPoint( [i,0,0] )
+print(strObject)
 
-    else:
-        rs.AddSphere( [i,0,0], 0.3)
-
-rs.EnableRedraw (True)
+#myFunction(strObject, [ 10,0,0] )
+#myFunction(strObject, [ 0,10,0] )
